@@ -1,0 +1,34 @@
+name: watchtower
+networks:
+  main:
+    external: true
+services:
+  watchtower:
+    command:
+      - nginxproxymanager
+      - pufferpanel
+      - playit-agent
+      - ollama-cpu
+      - open-webui
+      - flaresolverr
+      - jellyfin
+      - prowlarr
+      - qbittorrent
+      - radarr
+      - sonarr
+      - prometheus
+      - grafana
+      - cadvisor
+      - node_exporter
+    container_name: watchtower
+    environment:
+      WATCHTOWER_CLEANUP: "true"
+      WATCHTOWER_NOTIFICATION_URL: telegram://7491749214:AAGVivVI-Rk4PaHOcNuKYQuuGPUTAnXaiwk@telegram/?channels=1074838751
+      WATCHTOWER_NOTIFICATIONS: shoutrrr
+      WATCHTOWER_SCHEDULE: 0 0 * * *
+    image: containrrr/watchtower:latest
+    networks:
+      main: null
+    restart: unless-stopped
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock

@@ -1,0 +1,27 @@
+version: "3.8"
+networks:
+  main:
+    external: true
+
+services:
+  pufferpanel:
+    image: pufferpanel/pufferpanel:latest
+    container_name: pufferpanel
+    networks:
+      - main
+    volumes:
+      - /DATA/AppData/pufferpanel:/etc/pufferpanel
+      - /mnt/Storage2/games/pufferpanel:/var/lib/pufferpanel
+      - /var/run/docker.sock:/var/run/docker.sock
+    ports:
+      - 8080:8080
+      - 5657:5657
+      - 25565:25565
+    restart: unless-stopped
+
+  playit-agent:
+    image: ghcr.io/mafen/playit-docker@sha256:41e7201cd7a08796440343db2b67b5eb4f0effa79418f2da03d412f5b875c0a0
+    container_name: playit-agent
+    networks:
+      - main
+    restart: unless-stopped
