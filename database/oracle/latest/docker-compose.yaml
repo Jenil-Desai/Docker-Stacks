@@ -1,0 +1,17 @@
+version: "3.8"
+
+services:
+  oracle-xe:
+    image: 68e9d90b542e1d9ad4494fc9569ff56529a01fe128b6e369d9fb018ac7785228
+    container_name: oracle-xe
+    ports:
+      - "1521:1521" # Oracle default port
+      - "8080:8080" # HTTP port (for accessing APEX if available)
+    env_file:
+      - .env
+    environment:
+      ORACLE_ALLOW_REMOTE: "true"
+      ORACLE_PASSWORD: ${ORACLE_PASSWORD}
+      ORACLE_USER: ${ORACLE_USER}
+    volumes:
+      - ${DATA_DIR}:/u01/app/oracle

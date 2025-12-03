@@ -1,0 +1,28 @@
+version: "3.8"
+networks:
+  main:
+    external: true
+
+services:
+  ollama:
+    image: ollama/ollama:latest
+    container_name: ollama
+    networks:
+      - main
+    volumes:
+      - ${OLLAMA_CONFIG}:/root/.ollama
+      - ${OLLAMA_MODELS_DIR}:/root/.ollama/models
+    ports:
+      - 11434:11434
+    restart: unless-stopped
+
+  open-webui:
+    image: ghcr.io/open-webui/open-webui:main
+    container_name: open-webui
+    networks:
+      - main
+    volumes:
+      - ${OLLAMA_CONFIG}:/root/.ollama
+      - ${OPENWEBUI_DIR}:/app/backend/data
+    ports:
+      - 8081:8080

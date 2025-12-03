@@ -1,80 +1,75 @@
-# Docker Stacks
+# Docker-Stack
 
-A collection of Docker Compose stacks for various environments, categories, and services. This repository is designed to help you quickly set up and manage containerized services for development, testing, or home lab use.
+A curated collection of Docker container templates, organized for rapid project bootstrapping and consistent development environments. This repository provides a structured approach to managing Dockerfiles and Compose configurations for popular technology stacks and services.
 
 ---
 
-## Repository Structure
+## Overview
 
-- **Environment Level**  
-  Top-level directories represent different environments (e.g., `Laptop`, `Home-Server`).  
-  _Example: `Docker-Stacks/Laptop/`_
+**Docker-Stack** is designed for developers who want reusable, well-organized Docker templates for common stacks. Each template follows a clear directory structure, making it easy to find, customize, and deploy containers for your projects.
 
-- **Category Level**  
-  Within each environment, services are grouped by category (e.g., `Databases`, `DevOps`, `Monitoring`).  
-  _Example: `Docker-Stacks/Laptop/Databases/`_
+---
 
-- **Service Level**  
-  Each category contains directories for individual services (e.g., `mysql`, `oracle`, `mongodb`).  
-  _Example: `Docker-Stacks/Laptop/Databases/oracle/`_
+## Example Directory Structure
 
-- **Service Version Level**  
-  Each service may have one or more version-specific directories (e.g., `latest`, `v1`, `xe-11g`).  
-  _Example: `Docker-Stacks/Laptop/Databases/oracle/latest/`_
+```
+docker-stacks/
+├── nodejs/
+│   ├── Dockerfile
+│   └── docker-compose.yml
+├── python/
+│   ├── Dockerfile
+│   └── docker-compose.yml
+├── postgres/
+│   └── docker-compose.yml
+└── README.md
+```
+*Note: The actual contents may vary based on the stacks included.*
 
 ---
 
 ## Getting Started
 
-1. **Clone the Repository**
+1. **Clone the repository**
    ```sh
    git clone https://github.com/Jenil-Desai/Docker-Stacks.git
    cd Docker-Stacks
    ```
 
-2. **Navigate to Your Desired Stack**
-   - Choose your environment, category, service, and version.
-   - Example:
-     ```
-     cd Laptop/Databases/oracle/latest
-     ```
+2. **Select a stack template**
+   - Browse to the directory for the stack you need (e.g., `nodejs`, `python`, `postgres`).
 
-3. **Read the README.md at Each Level**
-   - Each directory contains a `README.md` with specific setup and usage instructions.
+3. **Build and run the container**
+   ```sh
+   docker-compose up --build
+   ```
+   or, for single Dockerfiles:
+   ```sh
+   docker build -t my-app .
+   docker run my-app
+   ```
 
-4. **Configure Environment Variables**
-   - Most stacks provide a `.env.example` file. Copy it to `.env` and adjust as needed.
-     ```sh
-     cp .env.example .env
-     ```
-
-5. **Start the Stack**
-   - Use Docker Compose to start the services.
-     ```sh
-     docker compose up -d
-     ```
+4. **Customize as needed**
+   - Edit the `Dockerfile` or `docker-compose.yml` to suit your project requirements.
 
 ---
 
-## Contributing
+## Contribution Guidelines
 
-1. Fork the repository.
-2. Create a new branch for your changes.
-3. Add or update stacks, documentation, or configurations.
-4. Submit a pull request with a clear description.
+- Contributions are welcome!  
+- To add a new stack, create a new directory with a clear name and include at least a `Dockerfile` (and optionally a `docker-compose.yml`).
+- Please document any special instructions in a `README.md` within the stack’s directory.
+- Open issues or pull requests for improvements, bug fixes, or new templates.
 
 ---
 
 ## License
 
-MIT License
+This project is licensed under the MIT License.
 
 ---
 
-## Contact
+## Author
 
-For questions, suggestions, or support, please contact:  
-**Jenil Desai**  
-[jenildev91@gmail.com](mailto:jenildev91@gmail.com)
-
----
+Maintained by [Jenil Desai](https://GitHub.com/Jenil-Desai).
+Feel free to reach out with suggestions or questions!
