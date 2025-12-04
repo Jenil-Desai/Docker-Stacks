@@ -1,4 +1,4 @@
-# Docker-Stack
+# Docker-Stacks
 
 A curated collection of Docker container templates, organized for rapid project bootstrapping and consistent development environments. This repository provides a structured approach to managing Dockerfiles and Compose configurations for popular technology stacks and services.
 
