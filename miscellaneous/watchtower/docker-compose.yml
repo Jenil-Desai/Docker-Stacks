@@ -7,8 +7,6 @@ services:
     container_name: watchtower
     environment:
       WATCHTOWER_CLEANUP: "true"
-      WATCHTOWER_NOTIFICATION_URL: telegram://${TELEGRAM_BOT_TOKEN}@telegram/?channels=${TELEGRAM_CHAT_ID}
-      WATCHTOWER_NOTIFICATIONS: shoutrrr
       WATCHTOWER_SCHEDULE: 0 0 * * *
     image: containrrr/watchtower:latest
     networks:
