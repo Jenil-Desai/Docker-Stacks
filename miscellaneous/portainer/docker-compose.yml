@@ -8,9 +8,6 @@ services:
     image: portainer/portainer-ce:lts
     command: -H unix:///var/run/docker.sock
     restart: always
-    environment:
-      - VIRTUAL_HOST=portainer.harikrupa.duckdns.org
-      - VIRTUAL_PORT=9000
     ports:
       - 8000:8000
     volumes:
