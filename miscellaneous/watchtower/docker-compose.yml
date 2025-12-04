@@ -4,23 +4,6 @@ networks:
     external: true
 services:
   watchtower:
-    command:
-      - portainer
-      - nginxproxymanager
-      - pufferpanel
-      - playit-agent
-      - ollama-cpu
-      - open-webui
-      - flaresolverr
-      - jellyfin
-      - prowlarr
-      - qbittorrent
-      - radarr
-      - sonarr
-      - prometheus
-      - grafana
-      - cadvisor
-      - node_exporter
     container_name: watchtower
     environment:
       WATCHTOWER_CLEANUP: "true"
